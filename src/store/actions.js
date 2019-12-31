@@ -7,8 +7,12 @@ import state from './state'
 
 //异步请求
 export default{
-
-
+//地址输入提示
+autocomplete({commit,state},value){
+    console.log(value)
+    state.locationC=value
+    console.log(state.locationC)
+}
 
 
 }

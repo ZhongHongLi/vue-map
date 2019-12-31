@@ -27,12 +27,11 @@ components:{
 },
 methods:{
 toogle(id,index){
- this.activeClass = index
-if(id===0){
+if(index===0){
   console.log(index)
   this.$router.push('/mentdload')
-   this.activeClass = index
-}else if(id===1){
+  // this.activeClass = index
+}else if(index===1){
   this.$router.push('/citylist')
   this.activeClass = index
   console.log(index)

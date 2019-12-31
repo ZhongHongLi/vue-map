@@ -3,11 +3,12 @@
     <!-- <input placeholder="加载"> -->
     <div id="map"
          ref="rootmap"></div>
-    <div class="topbar">
+    <div class="topbar"
+         @click="changeSelect">
       <img class="location_ico"
            src="../assets/img/@2X/nav_icon_dingwei_nor@2x.png"
            alt="">
-      <div class="text">福州</div>
+      <div class="text">{{locationC}}</div>
       <img class="arr_icon"
            src="../assets/img/@2X/nav_btn_view_nor@2x.png"
            alt="">
@@ -69,6 +70,7 @@
   import { Map, View } from "ol"
   import { defaults as defaultInteractions } from 'ol/interaction';
   import mapconfig from '../config/mapconfig'
+  import { mapState } from 'vuex'
   // import {cityList} from '../assets/js/data'
   export default {
     data() {
@@ -80,6 +82,14 @@
         starting: '',
         destination: ''
       };
+    },
+    created() {
+
+    },
+    computed: {
+      ...mapState([
+        'locationC'
+      ])
     },
     mounted() {
       // var mapcontainer = this.$refs.rootmap;
@@ -105,14 +115,17 @@
       // showCity(){
       //   this.barShow=true
       // }
-      showPopup(){
-        this.$router.push({name:'search'})
+      showPopup() {
+        this.$router.push({ name: 'search' })
+      },
+      changeSelect() {
+        this.$router.push({ name: 'searchcity' })
       }
     }
   };
 </script>
 
-<style>
+<style scoped>
   .box2 {
     width: 100vw;
     height: 100vh;
@@ -129,6 +142,7 @@
   .ol-attribution,
   .ol-zoom {
     display: none;
+    overflow: hidden;
   }
 
   .topbar {
@@ -208,6 +222,11 @@
     font-size: 0.3rem;
     font-family: "PingFang-SC-Medium";
     color: rgba(51, 51, 51);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    width: 0.6rem;
   }
 
   .srach_b {

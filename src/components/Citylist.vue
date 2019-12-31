@@ -69,8 +69,6 @@ data(){
  }
 },
 mounted(){
-this.a=cityData
-console.log(this.a)
 },
 components:{
   Donwnload

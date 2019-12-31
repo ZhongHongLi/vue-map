@@ -15,3 +15,14 @@
 .van-tab.van-tab--active{
 background-color: #007FFF;
 }
+
+.ol-attribution,
+  .ol-zoom {
+    display: none;
+    overflow: hidden;
+  }
+
+
+  *{
+    touch-action: pan-y
+  }

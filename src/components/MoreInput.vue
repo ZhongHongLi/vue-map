@@ -8,6 +8,8 @@
    @change="chage" 
    clearable />
 </div>
+
+
   </div>
 </template>
 
@@ -24,6 +26,9 @@ components:{
 methods:{
   chage(e){
   console.log(e.target.value)
+  },
+  changeIndex(e){
+    console.log(e)
   }
 }
 }

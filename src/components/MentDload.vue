@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .downloan_container{
     margin-top: 0.12rem;
 }

@@ -80,7 +80,7 @@ components:{
 
 .btn_box{
     width: 100%;
-    height: 5.64rem;
+    height: 6.0rem;
     position: fixed;
     left: 0;
     bottom: 0;
