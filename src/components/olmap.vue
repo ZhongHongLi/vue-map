@@ -8,7 +8,7 @@
       <img class="location_ico"
            src="../assets/img/@2X/nav_icon_dingwei_nor@2x.png"
            alt="">
-      <div class="text">{{locationC}}</div>
+      <div class="text">{{locao}}</div>
       <img class="arr_icon"
            src="../assets/img/@2X/nav_btn_view_nor@2x.png"
            alt="">
@@ -41,20 +41,8 @@
             请输入起点地名或地址
 
           </div>
-          <div class="text2 font-text">请输入终点地名或地址</div>
+          <div class="text2 font-text" @click="showPopup">请输入终点地名或地址</div>
         </div>
-        <!-- <van-popup v-model="show"
-                   position="top"
-                   :style="{ height: '100%'}">
-          <van-cell-group>
-            <van-field v-model="starting"
-                       placeholder="请输入起点地名或地址" />
-            <van-field v-model="destination"
-                       placeholder="请输入终点地名或地址" />
-          </van-cell-group>
-
-        </van-popup> -->
-
         <div class="explain">
           <img src="../assets/img/@2X/menu_btn_qiehuan__nor@2x.png"
                alt="">
@@ -80,11 +68,13 @@
         barShow: false,
         city: [],
         starting: '',
-        destination: ''
+        destination: '',
+        locao:''
       };
     },
     created() {
-
+     console.log(this.locao);
+     this.locao=localStorage.getItem('location')
     },
     computed: {
       ...mapState([
@@ -106,15 +96,9 @@
           enableRotation: false
         })
       })
+
     },
     methods: {
-      // showPopup() {
-      //   //  this.$router.push({name:'search'})
-      //   this.show = true;
-      // },
-      // showCity(){
-      //   this.barShow=true
-      // }
       showPopup() {
         this.$router.push({ name: 'search' })
       },

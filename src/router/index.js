@@ -74,6 +74,11 @@ component:resolve=>require(['@/components/Search'],resolve)
   path:'/luyou',
   name:'luyou',
   component:resolve=>require(['@/components/luyou'],resolve)
+},
+{
+  path:'/tabs',
+  name:'tabs',
+  component:resolve=>require(['@/components/Tabs'],resolve)
 }
 ]
 

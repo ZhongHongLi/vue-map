@@ -1,8 +1,6 @@
 <template>
   <div class="srach_container">
     <div class="serach_d test-i">
-      <!-- <img class="img-sc" src="../assets/img/@2X/menu_input_Search_nor@2x.png" alt="">
-      <div class="test"></div> -->
       <van-search placeholder="请输入地名或拼音"
                   v-model="searchCitydata"
                   @input="onSearch"
@@ -32,27 +30,19 @@
         <span>福州市</span>
       </div>
     </div>
-
-    <!-- <van-index-bar 
-     :index-list="indexList"
-     color='#007aff'
-     v-for="(item,index) in indexList"
-      :key="index"
-     >
-  <van-index-anchor  :index="item.index">{{item}}</van-index-anchor>
-   <van-cell v-for="(i,index2) in city" :key="index2" :title="i.citys" />
-</van-index-bar> -->
     <van-index-bar :index-list="indexList"
                    color='#007aff'
-                   :sticky="true">
+                   sticky>
       <van-index-anchor v-for="(item,index) in citydata"
                         :key="index"
-                        :index="item.initial">
+                        :index="item.initial"
+                        sticky>
         {{item.initial}}
         <van-cell v-for="(citem,cindex) in item.list"
                   :key="cindex"
                   :title="citem.name"
-                  @click="chooseCity(citem)" />
+                  @click="chooseCity(citem)"
+                  sticky />
       </van-index-anchor>
     </van-index-bar>
 
@@ -100,43 +90,36 @@
       onSearch(e) {
         if (e.trim().length !== 0) {
           this.InputValue = e;
-        //   console.log(this.InputValue)
+          //   console.log(this.InputValue)
         }
       },
       //这个是按下回车触发的事件
       onEnterSearch(e) {
         console.log(e);
         this.valueArr = e
-        this.LocationCity=e
-        if(event.keyCode==13){
-            this.searchCitydata=''
+        this.LocationCity = e
+        if (event.keyCode == 13) {
+          this.searchCitydata = ''
         }
       },
       chooseCity(a) {
         console.log(a.name)
         this.LocationCity = a.name
-        this.$store.commit('changeCity',a.name)
-        this.$router.push({name:'olmap'})
+        this.$store.commit('changeCity', a.name)
+        this.$router.push({ name: 'olmap' })
       },
- ...mapActions([
-  'autocomplete'
- ])
+      ...mapActions([
+        'autocomplete'
+      ])
     },
-  computed: {
-      
-  },
-  watch:{
-      searchCitydata(newVal,oldVal){
-        //   console.log('我是new----'+newVal),
-        //   console.log('我是old----'+oldVal)
-          if(newVal!=oldVal){
-              this.$store.dispatch('autocomplete', newVal)
-          }
-      },
-      chooseCity(newval){
-          console.log(newval)
+    computed: {
+
+    },
+    watch: {
+      chooseCity(newval) {
+        console.log(newval)
       }
-  }
+    }
   }
 </script>
 
@@ -311,5 +294,25 @@
     font-size: 0.24rem;
     font-family: "PingFang-SC-Medium";
     padding-left: 0.28rem;
+  }
+
+  .border_1px:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #000;
+    transform-origin: 50% 0%;
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border_1px:before {
+      transform: scaleY(0.5);
+    }
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border_1px:before {
+      transform: scaleY(0.33);
+    }
   }
 </style>

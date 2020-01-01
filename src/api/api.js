@@ -1,24 +1,29 @@
-import { get, post } from './http'
+import api from './http'
 
-export const apiAddress = p => post('api/v1/users/my_address/address_edit_before', p);
+//获取列表
+export const getlist =params=>api.get('getlist',{id:1})
+//删除请求
+export const deleteRole=id=>api.deletes('del',{id:2})
+//更新请求
+export const updateRole=params=>api.put('',{})
+//post
+export const updatapost=params=>api.post('/login',{})
 
-// import { apiAddress } from '@/request/api';// 导入我们的api接口
-// export default {  
-//  name: 'Address', 
-//  created () {
-//   this.onLoad();
-//  },
-//  methods: {   
-//   // 获取数据   
-//   onLoad() {
-//    // 调用api接口，并且提供了两个参数    
-//    apiAddress({     
-//     type: 0,     
-//     sort: 1    
-//    }).then(res => {
-//     // 获取数据成功后的其他操作
-//     ………………    
-//    })   
-//   }  
-//  }
+
+
+
+
+
+
+// methods: {
+//     async getUserPageData() {
+//         try {
+//            const res = await api.get('/usercenter/user/page?pageNo=1&pageSize=10') 
+//            // 业务代码......
+//            const { result } = res;
+//         } catch(error) {
+//             // 失败的情况写在catch中
+//         }
+//     }
 // }
+

@@ -8,5 +8,6 @@ export default{
  changeCity(state,abc){
     state.locationC=abc;
     console.log(state.locationC)
+    localStorage.setItem('location',state.locationC)
  }
 }

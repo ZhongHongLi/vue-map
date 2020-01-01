@@ -26,3 +26,24 @@ background-color: #007FFF;
   *{
     touch-action: pan-y
   }
+
+  /* 移动端的1px处理 */
+  /* .border_1px:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #000;
+    transform-origin: 50% 0%;
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio:2){
+      .border_1px:before{
+          transform: scaleY(0.5);
+      }
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio:3){
+      .border_1px:before{
+          transform: scaleY(0.33);
+      }
+  } */
